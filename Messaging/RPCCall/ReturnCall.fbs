@@ -1,0 +1,9 @@
+namespace Messaging;
+
+table ReturnCall {
+  unique_id: uint8;
+  length: uint16;
+  return_value: [ubyte];
+}
+
+root_type ReturnCall;

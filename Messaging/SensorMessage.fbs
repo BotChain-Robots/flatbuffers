@@ -1,0 +1,42 @@
+namespace Messaging;
+
+table TargetAngle {
+  value: int16;
+}
+
+table CurrentText {
+  value: string;
+}
+
+table CurrentAngle {
+  value: int16;
+}
+
+table Distance {
+  value: float;
+}
+
+table Temperature {
+  value: float;
+}
+
+table Position {
+  heading: float;
+  pitch: float;
+  roll: float;
+}
+
+union SensorValue {
+  TargetAngle,
+  CurrentAngle,
+  CurrentText,
+  Distance,
+  Temperature,
+  Position
+}
+
+table SensorMessage {
+  values: [SensorValue];
+}
+
+root_type SensorMessage;

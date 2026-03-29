@@ -1,0 +1,21 @@
+include "../RobotModule.fbs";
+
+namespace Messaging;
+
+enum ConnectionType : byte {
+  DIRECT = 0,
+  HOP = 1,
+}
+
+table TopologyMessage{
+    module_id: uint8;
+    module_type: ModuleType;
+    num_channels: uint8;
+    channel_to_module: [uint8]; // index is channel, value is connected board; 0 represents no connection
+    channel_to_orientation: [Orientation]; // index is channel, value is orientation
+    connection: ConnectionType;
+    leader: uint8;
+    firmware: string;
+}
+
+root_type TopologyMessage;

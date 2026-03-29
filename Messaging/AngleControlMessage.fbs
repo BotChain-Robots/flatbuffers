@@ -1,0 +1,7 @@
+namespace Messaging;
+
+table AngleControlMessage {
+    angle: int16;
+}
+
+root_type AngleControlMessage;

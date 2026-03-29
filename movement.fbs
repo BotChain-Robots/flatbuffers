@@ -1,0 +1,29 @@
+namespace Movement;
+
+struct ConditionBlob {
+    value: ushort;
+    cond: ubyte;
+    module_type: ubyte;
+    in_use: ubyte;
+}
+
+table MovementEntry {
+    board_id: ushort;
+    module_type: ubyte;
+    value_action: ushort;
+    condition: ConditionBlob;
+    ack: ubyte;
+    ack_ttl_ms: ushort;
+    post_delay_ms: ushort;
+}
+
+table MovementVector {
+    key: ubyte (key);              // map key
+    movements: [MovementEntry];    // vector value
+}
+
+table MovementSet {
+    movement_map: [MovementVector];
+}
+
+root_type MovementSet;

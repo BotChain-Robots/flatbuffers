@@ -1,0 +1,35 @@
+namespace Messaging;
+
+enum EntryType : byte {
+  NONE = 0,
+  I32,
+  U32,
+  I64,
+  U64,
+  STRING,
+  BLOB
+}
+
+table I32Value { value: int32; }
+table U32Value { value: uint32; }
+table I64Value { value: int64; }
+table U64Value { value: uint64; }
+table StringValue { value: string; }
+table BlobValue { value: [ubyte]; }
+
+union NvsValue {
+  I32Value,
+  U32Value,
+  I64Value,
+  U64Value,
+  StringValue,
+  BlobValue
+}
+
+table ConfigMessage {
+  key: string;
+  type: EntryType;
+  value: NvsValue;
+}
+
+root_type ConfigMessage;

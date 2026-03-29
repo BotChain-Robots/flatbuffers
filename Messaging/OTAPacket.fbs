@@ -1,0 +1,9 @@
+namespace Messaging;
+
+table OTAPacket {
+  sequence_number: uint16;
+  length: uint16;
+  payload: [ubyte];
+}
+
+root_type OTAPacket;

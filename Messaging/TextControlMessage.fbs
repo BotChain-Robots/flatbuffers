@@ -1,0 +1,7 @@
+namespace Messaging;
+
+table TextControlMessage {
+    message: string;
+}
+
+root_type TextControlMessage;

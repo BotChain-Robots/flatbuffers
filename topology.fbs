@@ -1,0 +1,19 @@
+namespace Topology;
+
+struct ChannelBoardConn {
+    channel: ubyte;
+    board_id: ushort;
+}
+
+table NeighbourBlob {
+    curr_board_id: ushort;
+    num_connections: ubyte;
+    neighbour_connections: [ChannelBoardConn];
+}
+
+table TopologyInfo {
+    num_boards: ushort;
+    boards: [NeighbourBlob];
+}
+
+root_type TopologyInfo;

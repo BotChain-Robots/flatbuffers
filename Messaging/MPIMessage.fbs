@@ -1,0 +1,19 @@
+namespace Messaging;
+
+enum MessageType : byte {
+  BROADCAST = 0,
+  PTP = 1,
+}
+
+table MPIMessage {
+  type: MessageType;
+  sender: uint8;
+  destination: uint8;
+  sequence_number: uint16;
+  is_durable: bool;
+  length: uint16;
+  tag: uint8;
+  payload: [ubyte];
+}
+
+root_type MPIMessage;

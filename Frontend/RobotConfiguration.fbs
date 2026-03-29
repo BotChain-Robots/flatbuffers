@@ -1,0 +1,18 @@
+include "../RobotModule.fbs";
+
+namespace Frontend;
+
+table ModuleConnection {
+    from_module_id: uint8;
+    to_module_id: uint8;
+    from_socket: uint8;
+    to_socket: uint8;
+    orientation: Orientation;
+}
+
+table RobotConfiguration{
+    modules: [RobotModule];
+    connections: [ModuleConnection];
+}
+
+root_type RobotConfiguration;

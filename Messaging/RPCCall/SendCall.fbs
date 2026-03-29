@@ -1,0 +1,10 @@
+namespace Messaging;
+
+table SendCall {
+  tag: uint8;
+  unique_id: uint8;
+  length: uint16;
+  parameters: [ubyte];
+}
+
+root_type SendCall;
